@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="model"
+            type="com.iconasystems.android.trumeter.vo.Customer" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/id"
+            android:text="@{String.valueOf(model.id)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/route_id"
+            android:text="@{String.valueOf(model.route_id)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/zone_name"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/customer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/id"
+            android:text="@{model.name}"
+            android:layout_toLeftOf="@+id/reading_indicator_dark_blue"
+            android:layout_toStartOf="@+id/reading_indicator_dark_blue"/>
+
+        <TextView
+            android:id="@+id/zone_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/customer_name"
+            android:layout_marginRight="16dp"
+            android:text=""
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/route_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/zone_name"
+            android:layout_toEndOf="@+id/id"
+            android:layout_toRightOf="@+id/id"
+            android:text="@{model.route_name}"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/cust_id"
+            android:text="@{String.valueOf(model.id)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/customer_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/route_name"
+            android:text="@{model.address}" />
+
+        <TextView
+            android:id="@+id/zone_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/zone_name"
+            android:layout_alignBottom="@+id/zone_name"
+            android:layout_toEndOf="@+id/zone_name"
+            android:layout_toRightOf="@+id/zone_name"
+            android:text=""
+            android:visibility="gone" />
+
+
+        <ImageView
+            android:id="@+id/reading_indicator_dark_blue"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/zone_id"
+            android:src="@drawable/home_dark_blue"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/reading_indicator_light_blue"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/zone_id"
+            android:src="@drawable/home_light_blue"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/reading_indicator_red"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/zone_id"
+            android:src="@drawable/home_red"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/reading_indicator_pink"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/zone_id"
+            android:src="@drawable/home_pink"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/reading_indicator_black"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/zone_id"
+            android:src="@drawable/home_black"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/reading_indicator_default"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/zone_id"
+            android:src="@drawable/home_black"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/posting_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/customer_address"
+            android:layout_toEndOf="@+id/zone_name"
+            android:layout_toRightOf="@+id/zone_name"
+            android:text="@{model.posting_group}" />
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+def dbflow_version = "2.2.1"
+def sqlcipher_version = "3.5.4"
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.3'
+
+    dataBinding {
+        enabled = true
+    }
+    defaultConfig {
+        applicationId "com.iconasystems.android.trumeter"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'ch.acra:acra:4.9.0'
+    compile 'com.android.support:support-v4:23.2.1'
+    compile 'com.android.support:design:23.2.1'
+    compile 'com.android.support:recyclerview-v7:23.2.1'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.android.support:cardview-v7:23.2.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'joda-time:joda-time:2.3'
+    //apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+    // use kapt for kotlin apt
+    compile "com.raizlabs.android:DBFlow-Core:2.2.1"
+    compile "com.raizlabs.android:DBFlow:2.2.1"
+    apt 'com.raizlabs.android:DBFlow-Compiler:2.2.1'
+    apt 'com.google.dagger:dagger-compiler:2.0'
+    // sql-cipher database encryption (optional)
+    //compile "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${dbflow_version}"
+    //compile "net.zetetic:android-database-sqlcipher:${sqlcipher_version}@aar"
+    // kotlin extensions
+    // compile "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:${dbflow_version}"
+    compile 'javax.annotation:jsr250-api:1.0'
+    compile 'com.google.dagger:dagger:2.0'
+    //compile 'de.greenrobot:eventbus:3.0.0-beta1'
+    compile 'de.greenrobot:eventbus:2.4.0'
+    compile 'com.google.dagger:dagger-compiler:2.0'
+    compile 'com.birbit:android-priority-jobqueue:2.0.1'
+    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'com.miguelcatalan:materialsearchview:1.4.0'
+    //compile 'com.squareup.retrofit2:converter-jackson'
+    //compile 'com.squareup.retrofit:converter-jackson:2.0.0-beta2'
+    compile 'com.fasterxml.jackson:jackson-parent:2.6.2'
+    //compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+}
